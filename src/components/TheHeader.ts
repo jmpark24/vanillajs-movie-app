@@ -1,7 +1,16 @@
 import { Component } from "../core/heropy";
+const { APIKEY } = process.env;
 
+interface State {
+  [key: string]: unknown
+  menus: {
+    name: string
+    href: string
+  }[]
+}
 
 export default class TheHeader extends Component {
+  public state!: State
   constructor() {
     super({
       tagName: 'header',
@@ -13,7 +22,7 @@ export default class TheHeader extends Component {
           },
           {
             name: 'Movie',
-            href: '#/movie?id=tt4520988'
+            href: `#/movie?id=${APIKEY}`
           },
           {
             name: 'About',
